@@ -12,7 +12,11 @@ EMAIL_KAMU = os.getenv("EMAIL_KAMU")
 PASSWORD_APLIKASI = os.getenv("PASSWORD_APLIKASI")
 PENERIMA = os.getenv("PENERIMA")
 TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN")
-ADMIN_IDS = [int(os.getenv("ADMIN_IDS"))]  # ambil dari Railway Variable
+admin_id_env = os.getenv("ADMIN_IDS")
+if admin_id_env:
+    ADMIN_IDS = [int(admin_id_env)]
+else:
+    ADMIN_IDS = []  # ambil dari Railway Variable
 ALLOWED_USERS = set(ADMIN_IDS)
 # ============================================================
 
